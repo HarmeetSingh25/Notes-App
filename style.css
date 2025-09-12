@@ -1,3 +1,7 @@
+:root {
+  --first: #FFF0CE;
+  --Second: #3396D3;
+}
 * {
   margin: 0;
   padding: 0;
@@ -7,4 +11,9 @@ html,
 body {
   width: 100%;
   height: 100%;
+}
+main {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(145deg, var(--first), var(--Second));
 }
