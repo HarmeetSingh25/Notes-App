@@ -23,6 +23,22 @@ CreateNotesBtn.addEventListener("click", () => {
 
   NotesHolder.append(ValueHolder);
 
+  let DltBtn = document.querySelectorAll(".DltNoteBtn");
+  
+  NotesHolder.addEventListener("click", (e) => {
 
+    if (!e.target.closest(".DltNoteBtn")) {
+      return;
+    }
+
+
+    if (e.target.closest(".DltNoteBtn")) {
+      DltBtn.forEach((element) => {
+        if (e.target.closest(".ValueHolder").id === element.id) {
+          e.target.closest(".ValueHolder").remove();
+        }
+      });
+    }
+  });
 });
 
