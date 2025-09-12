@@ -22,6 +22,7 @@ CreateNotesBtn.addEventListener("click", () => {
   ValueHolder.append(DltImg);
 
   NotesHolder.append(ValueHolder);
+  p.focus()
 
   let DltBtn = document.querySelectorAll(".DltNoteBtn");
   
