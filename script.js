@@ -16,9 +16,9 @@ NotesHolder.addEventListener("click", (e) => {
 NotesHolder.addEventListener("input", (e) => {
   let Edittabele = e.target.closest(".InputBox");
   if (!Edittabele) return;
-  console.log(e.target);
+  // console.log(e.data);
 
-  // saveDataDebounced();
+  saveDataDebounced();
 });
 
 CreateNotesBtn.addEventListener("click", () => {
@@ -50,10 +50,16 @@ function createNote(text = "") {
     p.focus();
 
     saveData();
-    // saveDataDebounced();
   });
 }
-
+let SaveTimer = null;
+function saveDataDebounced(delay = 300) {
+  if (SaveTimer) clearInterval(SaveTimer);
+  SaveTimer = setTimeout(() => {
+    saveData();
+    SaveTimer = null;
+  }, delay);
+}
 function saveData() {
   try {
     localStorage.setItem(STORAGE_KEY, NotesHolder.innerHTML);
